@@ -6,7 +6,7 @@
   
   <!-- Primary Meta Tags -->
   <!-- TODO: Replace with your paper title and author names -->
-  <meta name="title" content="PAPER_TITLE - AUTHOR_NAMES">
+  <meta name="title" content="SOC-GS">
   <!-- TODO: Write a compelling 150-160 character description of your research -->
   <meta name="description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
   <!-- TODO: Add 5-10 relevant keywords for your research area -->
@@ -21,7 +21,7 @@
   <!-- TODO: Replace with your institution or lab name -->
   <meta property="og:site_name" content="INSTITUTION_OR_LAB_NAME">
   <!-- TODO: Same as paper title above -->
-  <meta property="og:title" content="PAPER_TITLE">
+  <meta property="og:title" content="SOC-GS">
   <!-- TODO: Same as description above -->
   <meta property="og:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
   <!-- TODO: Replace with your actual website URL -->
@@ -74,7 +74,7 @@
 
 
   <!-- TODO: Replace with your paper title and authors -->
-  <title>PAPER_TITLE - AUTHOR_NAMES | Academic Research</title>
+  <title>SOC-GS</title>
   
   <!-- Favicon and App Icons -->
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
@@ -204,8 +204,7 @@
         <!-- TODO: Replace with your lab's related works -->
         <a href="https://arxiv.org/abs/PAPER_ID_1" class="work-item" target="_blank">
           <div class="work-info">
-            <!-- TODO: Replace with actual paper title -->
-            <h5>Paper Title 1</h5>
+            <h5>Reconstructing Objects, Not Scenes: Stable Object-centric 3D Gaussian Splatting under Multi-view Inconsistent Supervision</h5>
             <!-- TODO: Replace with brief description -->
             <p>Brief description of the work and its main contribution.</p>
             <!-- TODO: Replace with venue and year -->
@@ -249,7 +248,15 @@
                 <span class="author-block">
                   <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Gahyeon Kim</a><sup>*</sup>,</span>
                   <span class="author-block">
-                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Third Author</a>
+                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Gianella Cravioto</a></span>,
+                  <span class="author-block">
+                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Dong-hun Lee</a></span>,
+                  <span class="author-block">
+                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Chaewon Moon</a></span>,
+                  <span class="author-block">
+                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Chae-yeong Song</a></span>,
+                  <span class="author-block">
+                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Sang-hyo Park</a><sup>†</sup>
                   </span>
                   </div>
 
@@ -318,15 +325,15 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <!-- TODO: Replace with your teaser video -->
-      <video poster="" id="tree" autoplay controls muted loop height="100%" preload="metadata">
-        <!-- TODO: Add your video file path here -->
-        <source src="static/videos/banner_video.mp4" type="video/mp4">
-      </video>
-      <!-- TODO: Replace with your video description -->
-      <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
-      </h2>
+      <img
+        id="tree"
+        src="static/images/teaser.png"
+        alt="Teaser figure for object-only Gaussian splatting"
+        style="width: 100%; height: auto;"
+      >
+      <p class="has-text-justified" style="margin-top: 1rem;">
+        <strong>Figure 1:</strong> Object-only Gaussian splatting from masked multi-view images. <strong>(a)</strong> Masked multi-view inputs after background removal. <strong>(b)</strong> Gaussian splatting setup for object-centric reconstruction. <strong>(c)</strong> Rendered results comparing reconstruction quality and efficiency across methods.
+      </p>
     </div>
   </div>
 </section>
@@ -350,36 +357,158 @@
 </section>
 <!-- End paper abstract -->
 
+<section class="section hero is-white">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Method</h2>
+        <div class="content">
+          <img
+            src="static/images/framework.png"
+            alt="Framework overview"
+            loading="lazy"
+            style="width: 100%; height: auto;"
+          >
+          <p class="has-text-justified" style="margin-top: 1rem;">
+            <strong>Figure 2:</strong> Overview of <strong>SOC-GS</strong> for Object-centric 3D Gaussian Splatting. The pipeline first removes inconsistent views through <strong>(a) Object-aware View Filtering</strong>. It then refines the Gaussian distribution with <strong>(b) Object-centric Density Refinement</strong> to prune background Gaussians and concentrate density around the target object for compact reconstruction.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Qualtitative Results (Demo)</h2>
+
+      <div style="margin-bottom: 2.5rem;">
+        <h3 class="title is-4 has-text-centered">Scene 1: <code>figurines_33</code></h3>
+        <div class="columns is-centered">
+          <div class="column is-half">
+            <h4 class="title is-5 has-text-centered">3DGS</h4>
+            <div class="publication-video">
+              <div style="display: flex; align-items: center; justify-content: center; min-height: 480px; background: #f5f5f5; color: #666; padding: 1.5rem; text-align: center;">
+                Add the 3DGS demo file for <code>figurines_33</code> here.
+              </div>
+            </div>
+          </div>
+          <div class="column is-half">
+            <h4 class="title is-5 has-text-centered">Ours</h4>
+            <div class="publication-video">
+              <iframe
+                src="static/gs_demo/ours_lerf_mask_36.html"
+                title="Ours Gaussian Splat Demo for figurines_33"
+                loading="lazy"
+                frameborder="0"
+                allow="fullscreen; xr-spatial-tracking"
+                allowfullscreen
+                referrerpolicy="strict-origin-when-cross-origin">
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 2.5rem;">
+        <h3 class="title is-4 has-text-centered">Scene 2: <code>scene_name_02</code></h3>
+        <div class="columns is-centered">
+          <div class="column is-half">
+            <h4 class="title is-5 has-text-centered">3DGS</h4>
+            <div class="publication-video">
+              <div style="display: flex; align-items: center; justify-content: center; min-height: 480px; background: #f5f5f5; color: #666; padding: 1.5rem; text-align: center;">
+                Add the 3DGS demo file for <code>scene_name_02</code> here.
+              </div>
+            </div>
+          </div>
+          <div class="column is-half">
+            <h4 class="title is-5 has-text-centered">Ours</h4>
+            <div class="publication-video">
+              <div style="display: flex; align-items: center; justify-content: center; min-height: 480px; background: #f5f5f5; color: #666; padding: 1.5rem; text-align: center;">
+                Add the Ours demo file for <code>scene_name_02</code> here.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="title is-4 has-text-centered">Scene 3: <code>scene_name_03</code></h3>
+        <div class="columns is-centered">
+          <div class="column is-half">
+            <h4 class="title is-5 has-text-centered">3DGS</h4>
+            <div class="publication-video">
+              <div style="display: flex; align-items: center; justify-content: center; min-height: 480px; background: #f5f5f5; color: #666; padding: 1.5rem; text-align: center;">
+                Add the 3DGS demo file for <code>scene_name_03</code> here.
+              </div>
+            </div>
+          </div>
+          <div class="column is-half">
+            <h4 class="title is-5 has-text-centered">Ours</h4>
+            <div class="publication-video">
+              <div style="display: flex; align-items: center; justify-content: center; min-height: 480px; background: #f5f5f5; color: #666; padding: 1.5rem; text-align: center;">
+                Add the Ours demo file for <code>scene_name_03</code> here.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="subtitle has-text-centered" style="margin-top: 1rem;">
+        Side-by-side comparison on Focus dataset scenes. Drag to orbit and scroll to zoom.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section hero is-white">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Quantitative Results</h2>
+        <div class="content">
+          <img
+            src="static/images/quantitative_results.png"
+            alt="Quantitative results"
+            loading="lazy"
+            style="width: 100%; height: auto;"
+          >
+          <p class="has-text-justified" style="margin-top: 1rem;">
+            <strong>Table 1:</strong> Quantitative comparison on the FOCUS benchmark. The percentages next to each dataset indicate the average object area ratio within the frame. <strong>Ours (HDG)</strong> denotes a variant where a <strong>higher densification gradient</strong> threshold is used. The best, second-best, and third-best results are highlighted in red, orange, and yellow, respectively.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 <!-- Image carousel -->
+<!--
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
       <div id="results-carousel" class="carousel results-carousel">
        <div class="item">
-        <!-- TODO: Replace with your research result images -->
         <img src="static/images/carousel1.jpg" alt="First research result visualization" loading="lazy"/>
-        <!-- TODO: Replace with description of this result -->
         <h2 class="subtitle has-text-centered">
           First image description.
         </h2>
       </div>
       <div class="item">
-        <!-- Your image here -->
         <img src="static/images/carousel2.jpg" alt="Second research result visualization" loading="lazy"/>
         <h2 class="subtitle has-text-centered">
           Second image description.
         </h2>
       </div>
       <div class="item">
-        <!-- Your image here -->
         <img src="static/images/carousel3.jpg" alt="Third research result visualization" loading="lazy"/>
         <h2 class="subtitle has-text-centered">
          Third image description.
        </h2>
      </div>
      <div class="item">
-      <!-- Your image here -->
       <img src="static/images/carousel4.jpg" alt="Fourth research result visualization" loading="lazy"/>
       <h2 class="subtitle has-text-centered">
         Fourth image description.
@@ -389,56 +518,51 @@
 </div>
 </div>
 </section>
+-->
 <!-- End image carousel -->
 
 
 
 
 <!-- Youtube video -->
-<section class="hero is-small is-light">
+
+<!-- <section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container">
-      <!-- Paper video. -->
       <h2 class="title is-3">Video Presentation</h2>
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
           
           <div class="publication-video">
-            <!-- TODO: Replace with your YouTube video ID -->
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+             <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> 
           </div>
         </div>
       </div>
     </div>
   </div>
-</section>
+</section> -->
 <!-- End youtube video -->
 
 
 <!-- Video carousel -->
+<!--
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
       <h2 class="title is-3">Another Carousel</h2>
       <div id="results-carousel" class="carousel results-carousel">
         <div class="item item-video1">
-          <!-- TODO: Add poster image for better preview -->
           <video poster="" id="video1" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
             <source src="static/videos/carousel1.mp4" type="video/mp4">
           </video>
         </div>
         <div class="item item-video2">
-          <!-- TODO: Add poster image for better preview -->
           <video poster="" id="video2" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
             <source src="static/videos/carousel2.mp4" type="video/mp4">
           </video>
         </div>
         <div class="item item-video3">
-          <!-- TODO: Add poster image for better preview -->
           <video poster="" id="video3" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
             <source src="static/videos/carousel3.mp4" type="video/mp4">
           </video>
         </div>
@@ -446,6 +570,7 @@
     </div>
   </div>
 </section>
+-->
 <!-- End video carousel -->
 
 
@@ -453,19 +578,19 @@
 
 
 
-<!-- Paper poster -->
+<!-- Paper poster 
 <section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container">
       <h2 class="title">Poster</h2>
 
-      <!-- TODO: Replace with your poster PDF -->
       <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
           </iframe>
         
       </div>
     </div>
   </section>
+-->
 <!--End paper poster -->
 
 
